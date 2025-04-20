@@ -1,0 +1,6 @@
+# config/routes/lexik_jwt_authentication.yaml
+
+lexik_jwt_authentication_login:
+    path: /token
+    controller: lexik_jwt_authentication.controller.authentication:authenticateAction
+    methods: [POST]
