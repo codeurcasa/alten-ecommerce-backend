@@ -8,6 +8,7 @@ Ce projet est une API Symfony 6.4 permettant de gérer un site e-commerce (produ
 git clone https://github.com/codeurcasa/alten-ecommerce-backend.git
 cd alten-ecommerce-backend
 composer install
+
 🔑 Clés JWT
 Générer les clés :
 mkdir -p config/jwt
@@ -25,6 +26,7 @@ DATABASE_URL="sqlite:///%kernel.project_dir%/var/data.db"
 Puis exécuter :
 php bin/console doctrine:database:create
 php bin/console doctrine:migrations:migrate
+
 🔐 Authentification
 Créer un compte utilisateur : POST /account
 
@@ -47,5 +49,6 @@ Endpoint	Méthode	Description
 /cart	POST	Ajouter un produit au panier
 /wishlist	GET	Voir la wishlist
 /wishlist	POST	Ajouter un produit à la wishlist
+
 🧪 Tests
 Une collection Postman est fournie dans le dossier tests/Alten.postman_collection.json pour tester facilement tous les endpoints.
