@@ -1,0 +1,216 @@
+{
+  "info": {
+    "name": "Alten Symfony API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Create Account",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"username\": \"admin\",\n  \"firstname\": \"Admin\",\n  \"email\": \"admin@admin.com\",\n  \"password\": \"password\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/account",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "account"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Login (Get Token)",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"admin@admin.com\",\n  \"password\": \"password\"\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/token",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "token"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Products",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/products",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "products"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Create Product",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"code\": \"P123\",\n  \"name\": \"Test Product\",\n  \"description\": \"A test product\",\n  \"image\": \"https://via.placeholder.com/150\",\n  \"category\": \"Test\",\n  \"price\": 10.99,\n  \"quantity\": 5,\n  \"internalReference\": \"REF123\",\n  \"shellId\": 1,\n  \"inventoryStatus\": \"INSTOCK\",\n  \"rating\": 4.5\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/products",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "products"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Add to Cart",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"product_id\": 1,\n  \"quantity\": 2\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/cart",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "cart"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Cart",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/cart",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "cart"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Add to Wishlist",
+      "request": {
+        "method": "POST",
+        "header": [
+          {
+            "key": "Content-Type",
+            "value": "application/json"
+          },
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"product_id\": 1\n}"
+        },
+        "url": {
+          "raw": "http://localhost:8000/wishlist",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "wishlist"
+          ]
+        }
+      }
+    },
+    {
+      "name": "Get Wishlist",
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Authorization",
+            "value": "Bearer {{token}}"
+          }
+        ],
+        "url": {
+          "raw": "http://localhost:8000/wishlist",
+          "host": [
+            "localhost"
+          ],
+          "port": "8000",
+          "path": [
+            "wishlist"
+          ]
+        }
+      }
+    }
+  ]
+}
